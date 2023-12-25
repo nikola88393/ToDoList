@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #50586C;
+    --secondary-color: #DCE2F0;
+    --accent-color: #66A182;
+    --main-cotanier-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --children-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+#container {
+    width: 90vw;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    box-shadow: var(--children-shadow);
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    /* ??? */
+    box-shadow: var(--children-shadow);
+}
+
+#appContainer {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+}
+
+#projectContainer {
+    height: 80vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    min-width: 200px;
+    width: 20%;
+    box-shadow: var(--children-shadow);
+}
+
+#projectContainer h2 {
+    padding: 10px;
+}
+
+#projectList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+
+
+.project {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    width: 80%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    /* transition: 0.1s; */
+}
+
+.project:hover {
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--children-shadow);
+}
+
+#taskContainer {
+    height: 80vh;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    min-width: 600px;
+    width: 80%;
+    box-shadow: var(--children-shadow);
+}
