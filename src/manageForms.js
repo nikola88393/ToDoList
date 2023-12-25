@@ -1,3 +1,5 @@
+import manageContent from "./manageContent";
+
 const manageForms = (function () {
     let createTaskBtn = document.getElementById('addNewTask');
     let createProjectBtn = document.getElementById('addNewProject');
@@ -46,11 +48,27 @@ const manageForms = (function () {
         }
     }
 
+    const setProjectSelectElement = () => {
+        let selectELement = document.getElementById('projectName');
+        selectELement.innerHTML = '';
+        let options = manageContent.getProjects();
+        console.log(options);
+
+        options.forEach((option) => {
+            let opt = document.createElement('option');
+            opt.value = option.getName();
+            opt.innerHTML = option.getName();
+            selectELement.appendChild(opt);
+        })
+
+    }
+
     return {
         displayProjectForm,
         displayTaskForm,
         getProjectInfo,
-        getTaskInfo
+        getTaskInfo,
+        setProjectSelectElement
     }
 
 })();

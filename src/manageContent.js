@@ -13,6 +13,8 @@ const manageContent = (function () {
     createProjectBtn.addEventListener('click', () => {
         let newProject = project(manageForms.getProjectInfo());
         projects.push(newProject);
+        manageForms.setProjectSelectElement();
+        console.log(getProjects());
         renderProjects();
         manageForms.displayProjectForm();
 
@@ -28,6 +30,10 @@ const manageContent = (function () {
         renderTasks();
         manageForms.displayTaskForm();
     });
+
+    const getProjects = () => {
+        return projects;
+    }
 
     const renderProjects = () => {
         let container = document.getElementById('projectList');
@@ -54,6 +60,7 @@ const manageContent = (function () {
     }
 
     return {
+        getProjects,
         renderProjects,
         renderTasks,
         logArrays
