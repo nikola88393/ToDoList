@@ -32,10 +32,25 @@ const manageForms = (function () {
         return title;
     }
 
+    const getTaskInfo = () => {
+        let title = document.querySelector('#taskForm input').value;
+        let description = document.querySelector('#taskForm textarea').value;
+        let date = document.querySelector('#date').value;
+        let priority = document.querySelector('#priority').value;
+
+        return {
+            title,
+            description,
+            date,
+            priority
+        }
+    }
+
     return {
         displayProjectForm,
         displayTaskForm,
-        getProjectInfo
+        getProjectInfo,
+        getTaskInfo
     }
 
 })();
