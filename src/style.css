@@ -21,7 +21,7 @@ body {
 }
 
 #container {
-    width: 90vw;
+    width: 90%;
     border-radius: 30px;
     background-color: var(--primary-color);
     box-shadow: var(--children-shadow);
@@ -45,14 +45,15 @@ body {
 }
 
 #projectContainer {
-    height: 80vh;
+    height: 100%vh;
     background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
     border-radius: 20px;
-    min-width: 200px;
-    width: 20%;
+    min-width: 120px;
+    padding: 20px;
     box-shadow: var(--children-shadow);
 }
 
@@ -68,8 +69,6 @@ body {
     align-items: center;
 }
 
-
-
 .project {
     display: flex;
     align-items: center;
@@ -79,19 +78,47 @@ body {
     width: 80%;
     font-size: 1.2rem;
     cursor: pointer;
-    /* transition: 0.1s; */
 }
 
-.project:hover {
+.project:hover,
+.project:active {
     border: 2px solid var(--primary-color);
     box-shadow: var(--children-shadow);
 }
 
 #taskContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
     height: 80vh;
     background-color: var(--secondary-color);
     border-radius: 20px;
-    min-width: 600px;
-    width: 80%;
     box-shadow: var(--children-shadow);
+    padding: 20px;
+    overflow: hidden;
+}
+
+#tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    /* overflow: scroll; */
+}
+
+.task {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    box-shadow: var(--children-shadow);
+}
+
+.task:hover {
+    border: 2px solid var(--accent-color);
+}
+
+#taskFormContainer,
+#projectFormContainer {
+    display: none;
 }

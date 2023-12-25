@@ -12,11 +12,38 @@
         <div id="appContainer">
             <div id="projectContainer">
                 <h2>Projects</h2>
+                <button id="addNewProject">Add new project</button>
+                <div id="projectFormContainer">
+                    <form id="projectForm" onsubmit="return false">
+                        <input type="text" placeholder="Project's name">
+                        <button id="createProject">Create Project</button>
+                    </form>
+                </div>
                 <ul id="projectList">
                 </ul>
             </div>
             <div id="taskContainer">
+                <div id="taskFormContainer">
+                    <form id="taskForm" onsubmit="return false">
+                        <input type="text" placeholder="Task's title" required>
+                        <textarea cols="30" rows="10" placeholder="Task's Description" required></textarea>
+                        
+                        <label for="date">Due date:</label>
+                        <input id="date" type="date" required>
+
+                        <label for="priority">Priority:</label>
+                        <select id="priority">
+                            <option value="normal">Normal</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    
+                        <button id="createTask">Create Task</button>
+                    </form>
+                </div>
                 <h2>Tasks</h2>
+                <button id="addNewTask">Add new task</button>
+                <div id="tasks"></div>
             </div>
         </div>
     </div>
