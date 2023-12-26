@@ -54,7 +54,6 @@ const manageForms = (function () {
         let selectELement = document.getElementById('projectName');
         selectELement.innerHTML = '';
         let options = manageContent.getProjects();
-        console.log(options);
 
         options.forEach((option) => {
             let opt = document.createElement('option');

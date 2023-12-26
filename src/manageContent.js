@@ -15,7 +15,6 @@ const manageContent = (function () {
         let newProject = project(manageForms.getProjectInfo());
         projects.push(newProject);
         manageForms.setProjectSelectElement();
-        console.log(getProjects());
         renderProjects();
         filterContent();
         manageForms.displayProjectForm();
@@ -28,7 +27,7 @@ const manageContent = (function () {
         let args = manageForms.getTaskInfo();
         let newTask = task(args.title, args.description, args.date, args.priority, args.project);
         tasks.push(newTask);
-        renderTasks(tasks);
+        // renderTasks(tasks);
         manageForms.displayTaskForm();
     });
 
@@ -38,7 +37,6 @@ const manageContent = (function () {
             let newProject = project(`test${i}`);
             projects.push(newProject);
             manageForms.setProjectSelectElement();
-            console.log(getProjects());
             renderProjects();
             manageForms.displayProjectForm();
         }
@@ -46,12 +44,12 @@ const manageContent = (function () {
 
     const createExampleTasks = () => {
         for (let i = 1; i < 4; i++) {
-            for (let j = 1; j < 4; j++) {
-                let newTask = task(`test${j}`, `test`, '11/11/1111', 'normal', `test${i}`);
-                tasks.push(newTask);
-                renderTasks(tasks);
-                manageForms.displayTaskForm();
-            }
+            // for (let j = 1; j < 4; j++) {
+            let newTask = task(`test${i}`, `test`, '11/11/1111', 'normal', `test${i}`);
+            tasks.push(newTask);
+            // renderTasks(tasks);
+            manageForms.displayTaskForm();
+            // }
         }
     }
 
@@ -73,10 +71,17 @@ const manageContent = (function () {
     const renderTasks = (tasks) => {
         let container = document.getElementById('tasks');
         container.innerHTML = '';
+        if (tasks.length) {
+            tasks.forEach(tas => {
+                tas.renderTask();
+            });
+        }
+        else {
+            let empty = document.createElement('p');
+            empty.innerHTML = 'No tasks for the current project.';
+            container.appendChild(empty);
+        }
 
-        tasks.forEach(tas => {
-            tas.renderTask();
-        });
     };
 
     const returnTasks = (project) => {

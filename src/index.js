@@ -9,7 +9,6 @@ import filterContent from './filterContent';
 // manageContent.logArrays();
 manageContent.createExampleProjects();
 manageContent.createExampleTasks();
-console.log(manageContent.logArrays());
 filterContent();
 
 

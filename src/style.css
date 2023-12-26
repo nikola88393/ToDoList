@@ -120,5 +120,5 @@ body {
 
 #taskFormContainer,
 #projectFormContainer {
-    display: none;
+    /* display: none; */
 }
