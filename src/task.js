@@ -4,7 +4,7 @@ export default function task(title, description, date, priority, project) {
     const getDescription = () => description;
     const getDate = () => date;
     const getPriority = () => priority;
-    const getProject = () => project;
+    const getProject = () => { return project };
 
     const renderTask = () => {
         let container = document.getElementById('tasks');

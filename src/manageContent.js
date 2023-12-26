@@ -24,9 +24,9 @@ const manageContent = (function () {
 
     createTaskBtn.addEventListener('click', () => {
         let args = manageForms.getTaskInfo();
-        let newTask = task(args.title, args.description, args.date, args.priority, 'test');
+        let newTask = task(args.title, args.description, args.date, args.priority, args.project);
         tasks.push(newTask);
-        console.log(tasks);
+        console.log(newTask.getProject());
         renderTasks();
         manageForms.displayTaskForm();
     });

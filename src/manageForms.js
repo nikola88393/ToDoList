@@ -39,12 +39,14 @@ const manageForms = (function () {
         let description = document.querySelector('#taskForm textarea').value;
         let date = document.querySelector('#date').value;
         let priority = document.querySelector('#priority').value;
+        let project = document.querySelector('#projectName').value;
 
         return {
             title,
             description,
             date,
-            priority
+            priority,
+            project
         }
     }
 
