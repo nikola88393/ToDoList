@@ -1,6 +1,7 @@
 import task from "./task";
 import project from "./projects";
 import manageForms from "./manageForms";
+import filterContent from "./filterContent";
 
 //This module is intended to store all projects and tasks.
 // It also handles event clickers for creating new objects of those types
@@ -16,6 +17,7 @@ const manageContent = (function () {
         manageForms.setProjectSelectElement();
         console.log(getProjects());
         renderProjects();
+        filterContent();
         manageForms.displayProjectForm();
 
     });
@@ -26,7 +28,7 @@ const manageContent = (function () {
         let args = manageForms.getTaskInfo();
         let newTask = task(args.title, args.description, args.date, args.priority, args.project);
         tasks.push(newTask);
-        renderTasks();
+        renderTasks(tasks);
         manageForms.displayTaskForm();
     });
 
@@ -47,13 +49,13 @@ const manageContent = (function () {
             for (let j = 1; j < 4; j++) {
                 let newTask = task(`test${j}`, `test`, '11/11/1111', 'normal', `test${i}`);
                 tasks.push(newTask);
-                renderTasks();
+                renderTasks(tasks);
                 manageForms.displayTaskForm();
             }
         }
     }
 
-    // for testing purposes
+    // -----------------
 
     const getProjects = () => {
         return projects;
@@ -68,7 +70,7 @@ const manageContent = (function () {
         });
     };
 
-    const renderTasks = () => {
+    const renderTasks = (tasks) => {
         let container = document.getElementById('tasks');
         container.innerHTML = '';
 
@@ -77,11 +79,24 @@ const manageContent = (function () {
         });
     };
 
+    const returnTasks = (project) => {
+        let projectTasks = [];
+
+        tasks.forEach(task => {
+            if (task.getProject() === project) {
+                projectTasks.push(task);
+            }
+        })
+
+        return projectTasks;
+    }
+
     const logArrays = () => {
         console.log(projects);
         console.log('-----------------');
         console.log(tasks);
     }
+
 
     return {
         getProjects,
@@ -89,7 +104,8 @@ const manageContent = (function () {
         renderTasks,
         logArrays,
         createExampleProjects,
-        createExampleTasks
+        createExampleTasks,
+        returnTasks
     };
 })();
 
