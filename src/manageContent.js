@@ -26,10 +26,34 @@ const manageContent = (function () {
         let args = manageForms.getTaskInfo();
         let newTask = task(args.title, args.description, args.date, args.priority, args.project);
         tasks.push(newTask);
-        console.log(newTask.getProject());
         renderTasks();
         manageForms.displayTaskForm();
     });
+
+    // for testing purposes
+    const createExampleProjects = () => {
+        for (let i = 1; i < 4; i++) {
+            let newProject = project(`test${i}`);
+            projects.push(newProject);
+            manageForms.setProjectSelectElement();
+            console.log(getProjects());
+            renderProjects();
+            manageForms.displayProjectForm();
+        }
+    }
+
+    const createExampleTasks = () => {
+        for (let i = 1; i < 4; i++) {
+            for (let j = 1; j < 4; j++) {
+                let newTask = task(`test${j}`, `test`, '11/11/1111', 'normal', `test${i}`);
+                tasks.push(newTask);
+                renderTasks();
+                manageForms.displayTaskForm();
+            }
+        }
+    }
+
+    // for testing purposes
 
     const getProjects = () => {
         return projects;
@@ -63,7 +87,9 @@ const manageContent = (function () {
         getProjects,
         renderProjects,
         renderTasks,
-        logArrays
+        logArrays,
+        createExampleProjects,
+        createExampleTasks
     };
 })();
 

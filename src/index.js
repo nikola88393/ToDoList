@@ -6,8 +6,9 @@ import manageForms from './manageForms';
 
 // manageForms.projectButtonEvent();
 // manageContent.logArrays();
-// manageContent.createProject();
-// manageContent.createTask();
+manageContent.createExampleProjects();
+manageContent.createExampleTasks();
+console.log(manageContent.logArrays());
 
 
 // project1.renderTasks();
